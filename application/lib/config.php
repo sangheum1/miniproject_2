@@ -1,6 +1,6 @@
 <?php
 
-define("_ROOT", $_SERVER["DOCUMENT_ROOT"]);
+define("_ROOT", $_SERVER["DOCUMENT_ROOT"]); // ${SRVROOT}/htdocs = C:\Apache24\htdocs
 
 // db 관련
 define("_DB_HOST", "localhost");

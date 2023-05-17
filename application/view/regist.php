@@ -18,7 +18,7 @@
     <?php } ?>
     
     <form action="/user/regist" method="post">
-        <label for="id">ID</label>
+        <label for="id">아이디</label>
         <input type="text" name="id" id="id">
         <button type="button" onclick="chkDuplicationId();">중복체크</button>
         <span id="errMsgId">
@@ -27,7 +27,7 @@
             <?php } ?>
         </span>
         <br>
-        <label for="pw">PW</label>
+        <label for="pw">비밀번호</label>
         <input type="text" name="pw" id="pw">
         <span>
             <?php if(isset($this->arrError["pw"])) { ?>
@@ -35,7 +35,7 @@
             <?php } ?>
         </span>
         <br>
-        <label for="pwChk">PW Check</label>
+        <label for="pwChk">비밀번호 확인</label>
         <input type="text" name="pwChk" id="pwChk">
         <span>
             <?php if(isset($this->arrError["pwChk"])) { ?>
@@ -43,7 +43,7 @@
             <?php } ?>
         </span>
         <br>
-        <label for="name">NAME</label>
+        <label for="name">이름</label>
         <input type="text" name="name" id="name">
         <span>
             <?php if(isset($this->arrError["name"])) { ?>

@@ -21,7 +21,7 @@ class UserController extends Controller {
         }
         // session에 유저 id 저장
         $_SESSION[_STR_LOGIN_ID] = $_POST["id"];
-        return _BASE_REDIRECT."/product/list";
+        return _BASE_REDIRECT."/Shop/main";
     }
 
     // 로그아웃 메소드
@@ -46,6 +46,11 @@ class UserController extends Controller {
             $arrChkErr["id"] = "ID는 12글자 이하로 입력해 주세요";
         }
         // ID 영문숫자 체크 (한번 해보기)
+        $patton = "/[^a-zA-Z0-9]/";
+        if(preg_match($patten, $arrPost["id"]) !== 0) {
+            $arrChkErr["id"] = "ID는 영어 대문자, 영어 소문자, 숫자로만 입력";
+
+        }
 
         // PW 글자수 체크
         if(mb_strlen($arrPost["pw"]) < 8 || mb_strlen($arrPost["pw"]) > 20) {
@@ -98,6 +103,17 @@ class UserController extends Controller {
         
         // 로그인 페이지로 이동
         return _BASE_REDIRECT."/user/login";
+    }
+
+    public function modifyGet() {
+        $arr = [];
+
+        $arrUserInfo["id"] = $_SESSION[_STR_LOGIN_ID];
+        $arr = $this->model->getUser($arrUserInfo, false)[0];
+        $this->model->close();
+        
+        $this->addDynamicProperty('arrModify', $arr);
+        return "modify"._EXTENSION_PHP;
     }
 }
 ?>

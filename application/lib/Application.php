@@ -17,9 +17,10 @@ class Application {
 
         $identityName = empty($arrPath[0]) ? "Shop" : ucfirst($arrPath[0]);
         $action = (empty($arrPath[1]) ? "main" : $arrPath[1]).ucfirst(strtolower($_SERVER["REQUEST_METHOD"]));
+        // var_dump($action);
 
         // controller명 작성($indentityName은 User 받는것)
-        $controllerPath = _PATH_CONTROLLER.$identityName._BASE_FILENAME_CONTROLLER._EXTENSION_PHP;
+        $controllerPath = _PATH_CONTROLLER.$identityName._BASE_FILENAME_CONTROLLER._EXTENSION_PHP; // appli/controller/ UserController.php
 
         // 해당 controller 파일 존재(없으면 에러 처리)
         if(!file_exists($controllerPath)) {
@@ -30,7 +31,7 @@ class Application {
         // 해당 Controller 호출('/' -> '\' 변경)
         $controllerName = UrlUtil::replaceSlashToBackslash( _PATH_CONTROLLER.$identityName._BASE_FILENAME_CONTROLLER );
 
-        new $controllerName($identityName, $action); // usercontroller 불러옴
+        new $controllerName($identityName, $action); // usercontroller() 불러옴 ex) (User,loginGet)
     }
 }
 

@@ -25,7 +25,7 @@ class Controller {
         $this->chkAuthorization();
 
         // model 호출
-        $this->model = $this->getModel($identityName);
+        $this->model = $this->getModel($identityName); //
 
         // 해당 controller의 메소드 호출(UserController의 메소드 실행) 자식의 메소드 실행시키는것이 action()함수, action = loginGet이고 ()함수 만들고 this는 자식쪽에 있음
         $view = $this->$action();
@@ -43,7 +43,7 @@ class Controller {
     protected function getModel($identityName) {
         // model 생성 체크
         if(!in_array($identityName, self::$modelList)) {  // UserController를 호출했기때문에 this는 Usercontroller로 잡혀있고 그래서 부모에서 self를 써야 나 자신을 가리킴
-            $modelName = UrlUtil::replaceSlashToBackslash(_PATH_MODEL.$identityName._BASE_FILENAME_MODEL);
+            $modelName = UrlUtil::replaceSlashToBackslash(_PATH_MODEL.$identityName._BASE_FILENAME_MODEL); // application/model/usermodel
             self::$modelList[$identityName] = new $modelName(); // model class 호출
         }
         return self::$modelList[$identityName];

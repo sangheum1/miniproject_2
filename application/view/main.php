@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/application/view/css/main.css">
 </head>
 <body>
-    Shop Main
 	<?php if(isset($this->loginFlg)) { ?>
 		<a href="/user/logout">로그아웃</a>
         <a href="/user/modify">정보수정</a>
@@ -31,7 +31,7 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-            <img src="https://cdn.pixabay.com/photo/2017/06/21/20/51/tshirt-2428521_960_720.jpg" class="d-block w-100" alt="...">
+            <img src="https://cdn.pixabay.com/photo/2017/06/21/20/51/tshirt-2428521_960_720.jpg" class="d-block w-100 mh-70" alt="...">
             </div>
             <div class="carousel-item">
             <img src="https://cdn.pixabay.com/photo/2015/08/25/11/50/shop-906722_960_720.jpg" class="d-block w-100" alt="...">

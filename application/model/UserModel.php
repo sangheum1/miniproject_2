@@ -36,7 +36,28 @@ class UserModel extends Model {
 
     // Insert user
     public function insertUser($arrUserInfo) {
-        $sql ="INSERT INTO user_info( u_id, u_pw, u_name) VALUES(:u_id, :u_pw, :u_name) ";
+        $sql =" INSERT INTO user_info( u_id, u_pw, u_name, u_email ) VALUES(:u_id, :u_pw, :u_name, :u_email) ";
+
+        $prepare = [
+            ":u_id" => $arrUserInfo["id"]
+            , ":u_pw" => $arrUserInfo["pw"]
+            // , ":u_pw" => base64_encode( $arrUserInfo["pw"] )
+            , ":u_name" => $arrUserInfo["name"]
+            , ":u_email" => $arrUserInfo["email"]
+        ];
+
+        try {
+            $stmt = $this->conn->prepare($sql);
+            $result = $stmt->execute($prepare);
+            return $result;
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
+    // Update user
+    public function updateUser($arrUserInfo) {
+        $sql =" UPDATE user_info SET u_pw = :u_pw, u_name = :u_name WHERE u_id = :u_id ";
 
         $prepare = [
             ":u_id" => $arrUserInfo["id"]

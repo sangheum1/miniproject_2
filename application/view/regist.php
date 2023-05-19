@@ -51,7 +51,17 @@
             <?php } ?>
         </span>
         <br>
-        <button type="submit">Regist</button>
+        <label for="email">이메일</label>
+        <input type="text" name="email" id="email">
+        <span>
+            <?php if(isset($this->arrError["email"])) { ?>
+                <?php echo $this->arrError["email"] ?>
+            <?php } ?>
+        </span>
+
+
+        <br>
+        <button type="submit">회원가입하기</button>
     </form>
 
 

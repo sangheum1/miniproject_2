@@ -20,6 +20,7 @@ class ApiController extends Controller {
 
         // 배열을 json으로 변경
         $json = json_encode($arrData);
+        // http_response_code(200);
         header('Content-type: application/json');
         echo $json;
         exit();

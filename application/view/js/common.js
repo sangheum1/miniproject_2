@@ -14,7 +14,6 @@ function chkDuplicationId() {
             idspan.innerHTML = "";
         }
     });
-    ;
 
     // fetch(url)
     // .then(data => {
